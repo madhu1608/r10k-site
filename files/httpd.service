@@ -1,0 +1,15 @@
+[Unit]
+Description=The Apache HTTP Server
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/opt/SP/apache/httpd-2.4.29/bin/apachectl -k start -f /opt/SP/apache/httpd-2.4.29/conf/httpd.conf
+ExecReload=/opt/SP/apache/httpd-2.4.29/bin/apachectl -k graceful -f /opt/SP/apache/httpd-2.4.29/conf/httpd.conf
+ExecStop=/opt/SP/apache/httpd-2.4.29/bin/apachectl -k graceful-stop -f /opt/SP/apache/httpd-2.4.29/conf/httpd.conf
+PIDFile=/opt/SP/apache/httpd-2.4.29/logs/httpd.pid
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+
