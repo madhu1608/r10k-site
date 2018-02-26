@@ -62,12 +62,14 @@ node default {    # applies to ns1 and ns2 nodes
     #cleanup       => true,
   }
 
-#  file { 'httpd.service': 
-#    path => '/etc/systemd/system',
-#    ensure => 'file',
-#    #source => 'https://github.com/madhu1608/pdodeps/blob/master/httpd.service',
-#    source => 'http://192.168.1.2:8081/nexus/content/repositories/proj01/nexuscrossref/httpd.service',
-#  }
+  file { 'httpd.service': 
+    path => '/root/',
+    #path => '/etc/systemd/system',
+    ensure => 'file',
+    source => 'puppet:///extra_files/httpd.service',
+    #source => 'https://github.com/madhu1608/pdodeps/blob/master/httpd.service',
+  }
+
 #
 #  exec { 'refresh_daemon':
 #    command => "systemctl daemon-reload",
