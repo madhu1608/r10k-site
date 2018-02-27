@@ -2,6 +2,7 @@ node default {    # applies to ns1 and ns2 nodes
 
   include '::archive' # NOTE: optional for posix platforms
   $prereq_packages = ['telnet', 'wget', 'unzip']
+  $prereq_packages_pdo = ['php']
   $prereq_apache_folders = ['/opt', '/opt/SP']
   $install_apache_folder = '/opt/SP/apache'
   $docs_apache_folder = '/opt/SP/apache/httpd-2.4.29/htdocs'
@@ -10,6 +11,9 @@ node default {    # applies to ns1 and ns2 nodes
     ensure => "present",
   }
 
+  package { $prereq_packages_pdo:
+    ensure => "present",
+  }
   file { $prereq_apache_folders:
     ensure => 'directory',
   }
