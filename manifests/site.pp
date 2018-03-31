@@ -2,7 +2,7 @@ node default {
 
 	include ::archive
 
-	$nexus_repo_base = 'http://nexus:8081/repository/locdev-phpproj'
+	$nexus_repo_base = 'http://193.168.33.100:8081/repository/locdev-phpproj'
 	$prereq_apache_folders = ['/opt', '/opt/SP']
   $install_apache_folder = '/opt/SP/apache'
   $minimal_packages = ['telnet', 'wget', 'bzip2', 'curl']
@@ -30,6 +30,16 @@ node default {
 		cleanup      => false,
 		require => File[$install_apache_folder],
 	}
+
+	archive { '/tmp/httpd/phpenabled_httpd-2.4.29.tar.gz':
+		source       => "${nexus_repo_base}/httpd/2.4.29/phpenabled_httpd-2.4.29.tar.gz",
+		extract      => true,
+		extract_path => '/opt/SP/apache',
+		creates      => '/opt/SP/apache/httpd-2.4.29',
+		cleanup      => false,
+		require => File[$install_apache_folder],
+	}
+
 
 	archive { '/tmp/httpd/pdo_rel_1_1.tar.gz':
 		source       => "${nexus_repo_base}/pdo/rel_1_1/pdo_rel_1_1.tar.gz",
