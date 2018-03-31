@@ -31,7 +31,6 @@ node default {
 		require => File[$install_apache_folder],
 	}
 
-http://192.168.33.100:8081/repository/locdev-phpproj/php/7.1.12/php-7.1.12.tar.gz
 	archive { '/tmp/php/php-7.1.12.tar.gz':
 		source       => "${nexus_repo_base}/php/7.1.12/php-7.1.12.tar.gz",
 		extract      => true,
