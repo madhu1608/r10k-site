@@ -31,11 +31,12 @@ node default {
 		require => File[$install_apache_folder],
 	}
 
-	archive { '/tmp/httpd/phpenabled_httpd-2.4.29.tar.gz':
-		source       => "${nexus_repo_base}/httpd/2.4.29/phpenabled_httpd-2.4.29.tar.gz",
+http://192.168.33.100:8081/repository/locdev-phpproj/php/7.1.12/php-7.1.12.tar.gz
+	archive { '/tmp/php/php-7.1.12.tar.gz':
+		source       => "${nexus_repo_base}/php/7.1.12/php-7.1.12.tar.gz",
 		extract      => true,
 		extract_path => '/opt/SP/apache',
-		creates      => '/opt/SP/apache/httpd-2.4.29',
+		creates      => '/opt/SP/apache/php',
 		cleanup      => false,
 		require => File[$install_apache_folder],
 	}
