@@ -68,7 +68,7 @@ node default {
   file { '/opt/SP/apache/httpd-2.4.29/conf/httpd.conf':
     ensure => 'file',
     source => 'puppet:///extra_files/httpd.conf',
-    notify  => Service['httpd'],
+    #notify  => Service['httpd'],
     require => Archive['/tmp/httpd/pdo_rel_1_1.tar.gz'],
   }
 
