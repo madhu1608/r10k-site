@@ -64,6 +64,13 @@ node default {
     require => Archive['/tmp/httpd/pdo_rel_1_1.tar.gz'],
   }
 
+  file { '/opt/SP/apache/httpd-2.4.29/htdocs/index.php':
+    ensure => 'file',
+    source => 'puppet:///extra_files/index.php',
+    #notify  => Service['httpd'],
+    require => Archive['/tmp/httpd/pdo_rel_1_1.tar.gz'],
+  }
+
   service { "httpd":
     ensure  => running,
     hasrestart => true,
