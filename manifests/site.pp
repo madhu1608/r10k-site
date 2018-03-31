@@ -57,6 +57,13 @@ node default {
     require => Archive['/tmp/httpd/pdo_rel_1_1.tar.gz'],
   }
 
+  file { '/opt/SP/apache/php/lib/php.ini':
+    ensure => 'file',
+    source => 'puppet:///extra_files/php.ini-sample',
+    notify  => Service['httpd'],
+    require => Archive['/tmp/httpd/pdo_rel_1_1.tar.gz'],
+  }
+
   service { "httpd":
     ensure  => running,
     hasrestart => true,
