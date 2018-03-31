@@ -50,17 +50,11 @@ node default {
 		require => Archive['/tmp/php/php-7.1.12.tar.gz'],
 	}
 
-  file { '/opt/SP/apache/httpd-2.4.29/conf/httpd.conf':
-    ensure => 'file',
-    source => 'puppet:///extra_files/httpd.conf',
-    notify  => Service['httpd'],
-    require => Archive['/tmp/httpd/pdo_rel_1_1.tar.gz'],
-  }
 
   file { '/opt/SP/apache/php/lib/php.ini':
     ensure => 'file',
     source => 'puppet:///extra_files/php.ini-sample',
-    notify  => Service['httpd'],
+    #notify  => Service['httpd'],
     require => Archive['/tmp/httpd/pdo_rel_1_1.tar.gz'],
   }
 
@@ -68,6 +62,13 @@ node default {
     ensure => 'file',
     source => 'puppet:///extra_files/index.php',
     #notify  => Service['httpd'],
+    require => Archive['/tmp/httpd/pdo_rel_1_1.tar.gz'],
+  }
+
+  file { '/opt/SP/apache/httpd-2.4.29/conf/httpd.conf':
+    ensure => 'file',
+    source => 'puppet:///extra_files/httpd.conf',
+    notify  => Service['httpd'],
     require => Archive['/tmp/httpd/pdo_rel_1_1.tar.gz'],
   }
 
