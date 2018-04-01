@@ -69,7 +69,7 @@ node default {
     ensure => 'file',
     source => 'puppet:///extra_files/httpd.conf',
     notify  => Service['httpd'],
-    require => Archive['/opt/SP/apache/httpd-2.4.29/htdocs/index.php'],
+    require => File['/opt/SP/apache/httpd-2.4.29/htdocs/index.php'],
   }
 
   service { "httpd":
