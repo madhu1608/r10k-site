@@ -11,6 +11,10 @@ node default {
     ensure => 'present',
   }
 
+  file { '/etc/hosts':
+    ensure => 'file',
+    source => 'puppet:///extra_files/hosts',
+  }
 
   file { $prereq_apache_folders:
     ensure => 'directory',
@@ -79,6 +83,10 @@ node default {
     stop    => "/opt/SP/apache/httpd-2.4.29/bin/apachectl -k stop -f /opt/SP/apache/httpd-2.4.29/conf/httpd.conf",
     restart => "/opt/SP/apache/httpd-2.4.29/bin/apachectl -k restart -f /opt/SP/apache/httpd-2.4.29/conf/httpd.conf",
     pattern => "/opt/SP/apache/httpd-2.4.29/bin/httpd",
+  }
+
+  class { '::mcollective':
+    middleware_hosts => [ 'puppet.locdev.com' ],
   }
 
 }
