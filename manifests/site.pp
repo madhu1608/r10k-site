@@ -1,5 +1,4 @@
 node default {
-
 	include ::archive
 
 	$nexus_repo_base = 'http://nexus:8081/repository/locdev-phpproj'
@@ -84,12 +83,22 @@ node default {
     restart => "/opt/SP/apache/httpd-2.4.29/bin/apachectl -k restart -f /opt/SP/apache/httpd-2.4.29/conf/httpd.conf",
     pattern => "/opt/SP/apache/httpd-2.4.29/bin/httpd",
   }
+}
 
+node 'puppet.locdev.com' inherits default {
   class { '::mcollective':
-		middleware       => true,
+		#middleware       => true,
 		#client            => true,
     middleware_hosts => [ 'puppet.locdev.com' ],
   }
-
-
 }
+
+node 'tools.locdev.com' inherits default {
+  class { '::mcollective':
+		middleware       => true,
+    middleware_hosts => [ 'puppet.locdev.com' ],
+  }
+}
+
+
+
