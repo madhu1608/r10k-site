@@ -15,6 +15,12 @@ node default {
     source => 'puppet:///extra_files/hosts',
   }
 
+  file { '/etc/puppet/autosign.conf':
+    ensure => 'file',
+    source => 'puppet:///extra_files/autosign.conf',
+  }
+
+
   file { $prereq_apache_folders:
     ensure => 'directory',
   }
