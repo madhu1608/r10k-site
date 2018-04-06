@@ -86,7 +86,10 @@ node default {
   }
 
   class { '::mcollective':
+		middleware       => true,
+		client            => true,
     middleware_hosts => [ 'puppet.locdev.com' ],
   }
+
 
 }
