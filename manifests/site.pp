@@ -14,12 +14,9 @@ node default {
     ensure => 'file',
     source => 'puppet:///extra_files/hosts',
   }
+}
 
-  file { '/etc/puppet/autosign.conf':
-    ensure => 'file',
-    source => 'puppet:///extra_files/autosign.conf',
-  }
-
+node 'agent01.locdev.com' inherits default {
 
   file { $prereq_apache_folders:
     ensure => 'directory',
@@ -59,7 +56,6 @@ node default {
 		require => Archive['/tmp/php/php-7.1.12.tar.gz'],
 	}
 
-
   file { '/opt/SP/apache/php/lib/php.ini':
     ensure => 'file',
     source => 'puppet:///extra_files/php.ini-sample',
@@ -92,6 +88,13 @@ node default {
 }
 
 node 'puppet.locdev.com' inherits default {
+
+  file { '/etc/puppet/autosign.conf':
+    ensure => 'file',
+    source => 'puppet:///extra_files/autosign.conf',
+  }
+
+
   class { '::mcollective':
 		#middleware       => true,
 		#client            => true,
