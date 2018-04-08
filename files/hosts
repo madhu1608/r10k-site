@@ -1,7 +1,7 @@
 #Managed by puppet manual changes will be overriden - Madhu 6-Apr-2018
 127.0.0.1       localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1             localhost localhost.localdomain localhost6 localhost6.localdomain6
-192.168.33.100  tools.locdev.com tools nexus.locdev.com nexus jenkins.locdev.com jenkins
+192.168.33.100  tools.locdev.com tools nexus.locdev.com nexus jenkins.locdev.com jenkins gitserver.locdev.com gitserver
 192.168.33.151  agent01.locdev.com agent01
 192.168.33.150  puppet.locdev.com puppet
 
