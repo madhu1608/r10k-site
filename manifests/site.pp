@@ -4,7 +4,7 @@ node default {
 	$nexus_repo_base = 'http://nexus:8081/repository/locdev-phpproj'
 	$prereq_apache_folders = ['/opt', '/opt/SP']
   $install_apache_folder = '/opt/SP/apache'
-  $minimal_packages = ['telnet', 'wget', 'bzip2', 'curl']
+  $minimal_packages = ['telnet', 'wget', 'bzip2', 'curl', 'net-tools']
 
   package { $minimal_packages :
     ensure => 'present',
