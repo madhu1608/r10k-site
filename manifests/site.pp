@@ -1,6 +1,6 @@
 node default {
 
-	file { ' /etc/puppetlabs/puppet/fileserver.conf':
+	file { '/etc/puppetlabs/puppet/fileserver.conf':
   	ensure => link,
   	target => '/etc/puppetlabs/code/environments/production/fileserver.conf',
 	}
