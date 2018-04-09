@@ -5,10 +5,10 @@ node default {
   	target => '/etc/puppetlabs/code/environments/production/fileserver.conf',
 	}
 
-  #file { '/etc/hosts':
-  #  ensure => 'file',
-  #  source => 'puppet:///extra_files/hosts',
-  #}
+  file { '/etc/hosts':
+    ensure => 'file',
+    source => 'puppet:///extra_files/hosts',
+  }
 }
 
 
