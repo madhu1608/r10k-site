@@ -95,11 +95,11 @@ node 'puppet.locdev.com' inherits default {
   }
 
 
-  class { '::mcollective':
+  #class { '::mcollective':
 		#middleware       => true,
 		#client            => true,
-    middleware_hosts => [ 'puppet.locdev.com' ],
-  }
+  #  middleware_hosts => [ 'puppet.locdev.com' ],
+  #}
 }
 
 node 'tools.locdev.com' inherits default {
