@@ -3,4 +3,4 @@
 :sources:
   :local:
     remote: http://gitbucket:8082/git/madhu1608/r10k-site.git
-    basedir: /etc/puppet/environments
+    basedir: /etc/puppetlabs/code/environments
