@@ -1,8 +1,8 @@
 node default {
 
-	file { '/root/linkfile':
+	file { ' /etc/puppetlabs/puppet/fileserver.conf':
   	ensure => link,
-  	target => '/root/mainfile',
+  	target => '/etc/puppetlabs/code/environments/production/fileserver.conf',
 	}
 
   #file { '/etc/hosts':
@@ -10,3 +10,5 @@ node default {
   #  source => 'puppet:///extra_files/hosts',
   #}
 }
+
+
