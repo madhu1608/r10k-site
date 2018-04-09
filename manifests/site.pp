@@ -89,7 +89,7 @@ node 'agent01.locdev.com' inherits default {
 
 node 'puppet.locdev.com' inherits default {
 
-  file { '/etc/puppet/autosign.conf':
+  file { '/etc/puppetlabs/code/autosign.conf':
     ensure => 'file',
     source => 'puppet:///extra_files/autosign.conf',
   }
