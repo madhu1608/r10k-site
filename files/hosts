@@ -5,3 +5,4 @@
 192.168.33.151  agent01.locdev.com agent01
 192.168.33.150  puppet.locdev.com puppet
 192.168.33.167  broker.locdev.com broker
+192.168.33.152  agent03.locdev.com agent03
