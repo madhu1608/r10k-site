@@ -1,6 +1,4 @@
 node default {
-
-
 }
 
 node 'puppet.locdev.com' {
@@ -27,4 +25,10 @@ node /^agent\d+\.locdev\.com$/ {
   }
 }
 
+node 'tools.locdev.com' {
+  file { '/etc/hosts':
+    ensure => 'file',
+    source => 'puppet:///extra_files/hosts',
+  }
+}
 
