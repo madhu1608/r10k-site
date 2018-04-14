@@ -5,3 +5,6 @@ mod 'puppet-archive', '1.2.0'
 mod 'ntp',
   :git => 'http://gitbucket:8082/git/madhu1608/ntp.git'
 
+mod 'jenkins2',
+  :git => 'http://gitbucket:8082/git/madhu1608/jenkins2.git'
+
