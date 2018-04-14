@@ -37,7 +37,7 @@ node 'tools.locdev.com' {
   file { '/opt/SP':
     ensure => 'directory',
   }
-
+  include jenkins2
   #file { '/etc/hosts':
   #  ensure => 'file',
   #  source => 'puppet:///extra_files/hosts',
