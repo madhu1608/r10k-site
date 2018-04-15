@@ -50,7 +50,7 @@ node 'tools.locdev.com' {
   
   include java
   include ntp
-  include jenkins2
+  #include jenkins2
 
 }
 
