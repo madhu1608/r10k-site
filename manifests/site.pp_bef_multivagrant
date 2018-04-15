@@ -2,12 +2,6 @@ node default {
 }
 
 node 'puppet.locdev.com' {
-  
-  file { '/etc/hosts':
-    ensure => present,
-    source => '/vagrant_data/hosts',
-  } ->
-  
 	file { '/etc/puppetlabs/puppet/autosign.conf':
   	ensure => link,
   	target => '/etc/puppetlabs/code/environments/production/autosign.conf',
@@ -21,6 +15,11 @@ node 'puppet.locdev.com' {
   file { '/opt/SP':
     ensure => 'directory',
   }
+
+  #file { '/etc/hosts':
+  #  ensure => 'file',
+  #  source => 'puppet:///extra_files/hosts',
+  #}
 }
 
 node /^agent\d+\.locdev\.com$/ {
@@ -37,8 +36,8 @@ node /^agent\d+\.locdev\.com$/ {
 node 'tools.locdev.com' {
 
   file { '/etc/hosts':
-    ensure => present,
-    source => '/vagrant_data/hosts',
+    ensure => 'file',
+    source => 'puppet:///extra_files/hosts',
   } ->
   
   file { '/opt/SP':
