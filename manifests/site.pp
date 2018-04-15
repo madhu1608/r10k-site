@@ -1,7 +1,7 @@
 node default {
 }
 
-node 'puppet.locdev.com' {
+node 'puppet.locdev.com', 'puppet.locdo.com' {
   
   file { '/etc/hosts':
     ensure => present,
@@ -34,7 +34,7 @@ node /^agent\d+\.locdev\.com$/ {
   #}
 }
 
-node 'tools.locdev.com' {
+node 'tools.locdev.com', 'tools.locdo.com' {
 
   file { '/etc/hosts':
     ensure => present,
