@@ -45,10 +45,6 @@ node 'tools.locdev.com', 'tools.locdo.com' {
     ensure => 'directory',
   } ->
 
-  file { '/opt/SP/jenkins':
-    ensure => 'directory',
-  }
-  
   include java
   include ntp
   include jenkins2
