@@ -48,6 +48,7 @@ node 'tools.locdev.com' {
     ensure => 'directory',
   }
   
+  include java
   include ntp
   include jenkins2
 
