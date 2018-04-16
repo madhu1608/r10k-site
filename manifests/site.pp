@@ -1,6 +1,8 @@
 node default {
 }
 
+$GITSERVER_HOME="http://gitbucket:8082/git/madhu1608"
+
 node 'puppet.locdev.com', 'puppet.locdo.com' {
   
   file { '/etc/hosts':
@@ -34,7 +36,7 @@ node /^agent\d+\.locdev\.com$/ {
   #}
 }
 
-node 'tools.locdev.com', 'tools.locdo.com' {
+node 'tools.locdev.com' 'tools.locdo.com' {
 
   file { '/etc/hosts':
     ensure => present,
@@ -43,11 +45,13 @@ node 'tools.locdev.com', 'tools.locdo.com' {
   
   file { '/opt/SP':
     ensure => 'directory',
-  } ->
+  }
 
   include java
-  include ntp
-  include jenkins2
+  #include ntp
+  #include jenkins2
+  #class java ($GITSERVER_HOME) {}
+  
 
 }
 
