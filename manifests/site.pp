@@ -48,7 +48,7 @@ node 'tools.locdev.com' 'tools.locdo.com' {
   }
 
   include java
-  include ntp
+  #include ntp
   include jenkins2
 
 }
